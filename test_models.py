@@ -21,3 +21,8 @@ class TestPlayer:
         assert not jim.get_class('archaeologist')
         with pytest.raises(AttributeError):
             jim.p_class
+
+    def test_player_class_caps(self):
+        bert = Player('Bert')
+        assert bert.get_class('MaGe')
+        assert bert.p_class == 'mage'
