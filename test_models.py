@@ -23,3 +23,6 @@ class TestPlayer:
             'Allowed class with upper case not dropping to lower case'
         assert bob.p_class == 'mage', \
             'Allowed class with upper case not saving as lower case'
+
+        assert bob.level == 1, 'Player level not defaulting to 1'
+        assert bob.exp == 0, 'Player experience not defaulting to 0'
