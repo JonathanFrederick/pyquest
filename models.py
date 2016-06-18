@@ -6,7 +6,7 @@ class Player():
 
     def get_class(self, p_class):
         p_class = p_class.lower()
-        if p_class in ['warrior', 'mage', 'archer', 'archaeologist']:
+        if p_class in ['warrior', 'mage', 'archer']:
             self.p_class = p_class
             return True
         else:
