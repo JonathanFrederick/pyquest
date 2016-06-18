@@ -4,25 +4,22 @@ from models import Player
 
 class TestPlayer:
     def test_player_creation(self):
-        pal = Player("Paladin")
-        assert pal.name == "Paladin"
-
-    def test_player_default_name(self):
         brave = Player()
-        assert brave.name == "Brave Hero"
+        assert brave.name == 'Brave Hero', 'Default name not working'
 
-    def test_player_class(self):
         bob = Player('Bob')
-        assert bob.get_class('mage')
-        assert bob.p_class == 'mage'
+        assert bob.name == 'Bob', 'Chosen player name not assigned'
 
-    def test_player_wrong_class(self):
-        jim = Player('Jim')
-        assert not jim.get_class('archaeologist')
+        assert not bob.get_class('archaelogist'), \
+            'Disallowed class not returning False'
         with pytest.raises(AttributeError):
-            jim.p_class
-
-    def test_player_class_caps(self):
-        bert = Player('Bert')
-        assert bert.get_class('MaGe')
-        assert bert.p_class == 'mage'
+            bob.p_class  # TODO: find way to return custom error message
+        assert bob.get_class('mage'), 'get_class method not returning True'
+        assert bob.p_class == 'mage', \
+            'Allowed chosen player class not assigned'
+        assert bob.get_class('MaGe'), \
+            'Allowed class with upper case not returning True'
+        assert not bob.p_class == 'MaGe', \
+            'Allowed class with upper case not dropping to lower case'
+        assert bob.p_class == 'mage', \
+            'Allowed class with upper case not saving as lower case'
