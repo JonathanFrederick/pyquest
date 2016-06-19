@@ -1,3 +1,5 @@
+from random import choice
+
 class Player():
     def __init__(self, name="Brave Hero"):
         self.name = name
@@ -11,3 +13,8 @@ class Player():
             return True
         else:
             return False
+
+
+class Room():
+    def __init__(self):
+        self.floor = choice(['chest', 'tree', 'rock'])
