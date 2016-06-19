@@ -1,5 +1,5 @@
 import pytest
-from models import Player
+from models import Player, Room
 
 
 class TestPlayer:
@@ -26,3 +26,9 @@ class TestPlayer:
 
         assert bob.level == 1, 'Player level not defaulting to 1'
         assert bob.exp == 0, 'Player experience not defaulting to 0'
+
+
+class TestRoom:
+    def test_room_creation(self):
+        room = Room()
+        assert room.floor in ['chest', 'tree', 'rock']
